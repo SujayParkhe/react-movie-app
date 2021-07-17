@@ -19,7 +19,7 @@ aliases:
       name: Install dependenices
       command: npm install
   - &save-cache
-    paths: 
+    path: 
       - node_modules
     key: app-{{ checksum "package.json" }}
   - &install-aws-cli 
