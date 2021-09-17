@@ -133,7 +133,7 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "plain_text"
+                    "type": "plain_text",
                     "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and CF is completed. 👍",
                     "emoji": true
                   }
