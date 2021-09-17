@@ -122,62 +122,62 @@ jobs:
   notify-via-slack:
     executor: slack-executor
     steps:
-      - run: echo "Slack has been notified"
+      - run: echo "Slack notification"
       - slack/notify:
           event: 'always'
           channel: 'cinema-app-circle-ci'
-          template: ''
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and CF is completed. 👍",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdown",
-                      "text": "*Project*:\n$CIRCLE_PROJECT_REPONAME"
-                    },
-                    {
-                      "type": "mrkdown",
-                      "text": "*Branch*:\n$CIRCLE_BRANCH"
-                    },
-                    {
-                      "type": "mrkdown",
-                      "text": "*When*:\n$(date + '%m/%d/%Y %T')"
-                    },
-                    {
-                      "type": "mrkdown",
-                      "text": "*Build Number*:\n$CIRCLE_BUILD_NUM"
-                    },
-                    {
-                      "type": "mrkdown",
-                      "text": "*AuthorName*:\n$CIRCLE_PROJECT_USERNAME"
-                    }
-                  ]
-                },
-                {
-                  "type": "actions",
-                  "elements": [
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "View Job"
-                      },
-                      "url": "${CIRCLE_BUILD_URL}"
-                    }
-                  ]
-                }
-              ]
-            }
+          template: success_tagged_deploy_1
+          # custom: |
+          #   {
+          #     "blocks": [
+          #       {
+          #         "type": "header",
+          #         "text": {
+          #           "type": "plain_text",
+          #           "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and CF is completed. 👍",
+          #           "emoji": true
+          #         }
+          #       },
+          #       {
+          #         "type": "section",
+          #         "fields": [
+          #           {
+          #             "type": "mrkdown",
+          #             "text": "*Project*:\n$CIRCLE_PROJECT_REPONAME"
+          #           },
+          #           {
+          #             "type": "mrkdown",
+          #             "text": "*Branch*:\n$CIRCLE_BRANCH"
+          #           },
+          #           {
+          #             "type": "mrkdown",
+          #             "text": "*When*:\n$(date + '%m/%d/%Y %T')"
+          #           },
+          #           {
+          #             "type": "mrkdown",
+          #             "text": "*Build Number*:\n$CIRCLE_BUILD_NUM"
+          #           },
+          #           {
+          #             "type": "mrkdown",
+          #             "text": "*AuthorName*:\n$CIRCLE_PROJECT_USERNAME"
+          #           }
+          #         ]
+          #       },
+          #       {
+          #         "type": "actions",
+          #         "elements": [
+          #           {
+          #             "type": "button",
+          #             "text": {
+          #               "type": "plain_text",
+          #               "text": "View Job"
+          #             },
+          #             "url": "${CIRCLE_BUILD_URL}"
+          #           }
+          #         ]
+          #       }
+          #     ]
+          #   }
 
 workflows:
   build_and_deploy:
