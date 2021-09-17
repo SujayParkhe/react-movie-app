@@ -159,7 +159,7 @@ jobs:
                     },
                     {
                       "type": "mrkdown",
-                      "text": "*Author*:\n$CIRCLE_PROJECT_USERNAME"
+                      "text": "*AuthorName*:\n$CIRCLE_PROJECT_USERNAME"
                     }
                   ]
                 },
